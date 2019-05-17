@@ -6,14 +6,47 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <title>欢迎你的到来</title>
+  <style>
+    .bg-cover {
+      background: url('images/body-bg.jpg') no-repeat;
+      background-size: cover;
+      background-position: center center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-      <h2>hey, guys! 欢迎来到我的博客空间</h2>
-      <button type="button" class="btn btn-primary">CLICK ME 🙃</button>
-    </div>
+  <div class="bg-cover"></div>
+  <div class="container">
+    <h2>hey, guys! 欢迎来到我的博客空间</h2>
+    <button type="button" class="btn btn-primary">CLICK ME 🙃</button>
+  </div>
 </body>
 <script>
+  document.title = '欢迎你的到来'
+  window.onload = function(ev) {
+    console.log(document.readyState)
+    window.addEventListener('readystatechange', function() {
+      console.log(document.readyState)
+    })
+    window.addEventListener('visibilitychange', function(ev) {
+      if (document.hidden) {
+        setTimeout(function () {
+          document.title = '不要离开我(；′⌒`)'
+        }, 500)
+      } else {
+        document.title = '你回来啦O(∩_∩)O哈！'
+        setTimeout(function() {
+          document.title = '欢迎你的到来'
+        }, 2000)
+      }
+    })
+  }
   var btn = document.querySelector('.btn-primary')
   btn.addEventListener('click', function() {
     alert('❤️❤️❤️❤️❤️❤️')
