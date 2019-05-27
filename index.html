@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <title>欢迎你的到来</title>
@@ -18,6 +18,13 @@
       height: 100%;
       z-index: -1;
     }
+    .title {
+      margin: 30px 0;
+    }
+    .title h2 {
+      margin: 0;
+      text-align: center;
+    }
     .link-p {
       height: 40px;
       line-height: 40px;
@@ -29,12 +36,25 @@
       color: #fff;
       font-weight: 800;
     }
+    .wechat-public {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .qrcode p {
+      margin: 0;
+    }
+    .qrcode img {
+      width: 200px;
+    }
   </style>
 </head>
 <body>
   <div class="bg-cover"></div>
   <div class="container">
-    <h2>hey, guys! 欢迎来到我的博客空间</h2>
+    <div class="title">
+      <h2 class="welcome">Hey, guys!</h2>
+      <h2 class="welcome">Welcome to the page</h2>
+    </div>
     <!-- <button type="button" classs="btn btn-primary">CLICK ME 🙃</button> -->
     <a href="https://mp.weixin.qq.com/s/cijoI9wIXrmVx0yMXXf7hg" target="_blank">
       <p class="link-p">
@@ -46,31 +66,29 @@
         【全方位Node开发】node 模块化系统
       </p>
     </a>
+    <div class="wechat-public ">
+      <div class=" qrcode center-block">
+        <p>前端全干微信群O(∩_∩)O~~</p>
+        <img class="img-rounded" src="./images/wx-group.jpeg" alt="">
+      </div>
+    </div>
   </div>
 </body>
 <script>
   document.title = '欢迎你的到来'
   window.onload = function(ev) {
-    console.log(document.readyState)
-    window.addEventListener('readystatechange', function() {
-      console.log(document.readyState)
-    })
     window.addEventListener('visibilitychange', function(ev) {
       if (document.hidden) {
         setTimeout(function () {
           document.title = '(；′⌒`)不要离开我'
-        }, 50)
+        }, 0)
       } else {
         document.title = 'O(∩_∩)O哈！你回来啦'
         setTimeout(function() {
           document.title = '欢迎你的到来'
-        }, 2000)
+        }, 1000)
       }
     })
   }
-  var btn = document.querySelector('.btn-primary')
-  btn.addEventListener('click', function() {
-    alert('❤️❤️❤️❤️❤️❤️')
-  })
 </script>
 </html>
